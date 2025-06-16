@@ -34,7 +34,7 @@ services:
     volumes:
       - "db-data:/var/lib/postgresql/data"
     env_file:
-      - .env
+      - .env.example
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
@@ -81,7 +81,7 @@ services:
       GF_AUTH_PROXY_AUTO_SIGN_UP: "true"
       GF_AUTH_PROXY_SYNC_TTL: "0"
     env_file:
-      - .env
+      - .env.example
     volumes:
       - "grafana-data:/var/lib/grafana"
       - "./grafana-provisioning:/etc/grafana/provisioning/"
